@@ -67,7 +67,6 @@ int main() {
 
 	hThread = CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)pAddress, NULL, NULL, NULL);
 	if (hThread != NULL)
-		printf("Hi");
 		WaitForSingleObject(hThread, INFINITE);
 
 	printf("[#] Press <Enter> To Quit ... ");
