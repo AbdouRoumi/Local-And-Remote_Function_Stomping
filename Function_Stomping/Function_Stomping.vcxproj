@@ -24,6 +24,7 @@
     <ProjectGuid>{d59634c3-c720-4439-bfc9-54e3c8874743}</ProjectGuid>
     <RootNamespace>FunctionStomping</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Remote_Function_Stomping</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

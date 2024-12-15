@@ -42,6 +42,7 @@ BOOL GetRemoteProcessHandle(LPWSTR szProcessName, DWORD* dwProcessId, HANDLE* hP
 
 
 	// Takes a snapshot of the currently running processes 
+
 	hSnapShot = CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, NULL);
 	if (hSnapShot == INVALID_HANDLE_VALUE) {
 		printf("\t[!] CreateToolhelp32Snapshot Failed With Error : %d \n", GetLastError());
@@ -93,6 +94,7 @@ BOOL GetRemoteProcessHandle(LPWSTR szProcessName, DWORD* dwProcessId, HANDLE* hP
 	} while (Process32Next(hSnapShot, &Proc));
 	// while we can still have a valid output ftom Process32Net, continue looping
 
+	printf("hey");
 
 _EndOfFunction:
 	if (hSnapShot != NULL)
@@ -141,7 +143,7 @@ int wmain(int argc, wchar_t* argv[]){
 		wprintf(L"[!] Enter a valid process \n");
 		return EXIT_FAILURE;
 	}
-	wprintf(L"[!] Searching for process ID of %s", argv[1]);
+	wprintf(L"[!] Searching for process ID of %s\n", argv[1]);
 	if (!GetRemoteProcessHandle(argv[1], &dwProcessId, &hProcess)) {
 		printf("Process not found \n");
 		return EXIT_FAILURE;
