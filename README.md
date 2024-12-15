@@ -1,6 +1,6 @@
 # Function Stomping Injection
 
-## [![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=2000&pause=1000&width=435&lines=Welcome+to+Function+Stomping+Injection+Repo!!!;Check+my+Repos+for+more+malware+projects;Exploring+advanced+injection+techniques;Educational+purposes+only!)](https://git.io/typing-svg)
+## [![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=2000&pause=1000&width=435&lines=Welcome+to+Function+Stomping+Injection!!!;Exploring+advanced+injection+techniques;Educational+purposes+only!)](https://git.io/typing-svg)
 
 ## Overview
 
